@@ -1,0 +1,405 @@
+{
+  "source": "https://wardhasaleem.com",
+  "capturedAt": "2026-10-20",
+  "logo": "https://wardhasaleem.com/cdn/shop/files/Wardha_Saleem_LogoS-02_8d40b9d6-fc63-4579-9700-b453af2a4c32.png?v=1702294002",
+  "mobileLogo": "https://wardhasaleem.com/cdn/shop/files/Wardha_Saleem_LogoS-02.png?v=1702127721",
+  "footerLogo": "https://wardhasaleem.com/cdn/shop/files/WS_logo.png?v=1702546640",
+  "nav": [
+    {
+      "title": "NEW ARRIVALS",
+      "href": "/collections/new-in"
+    },
+    {
+      "title": "KAFTAN & JALABIYA",
+      "href": "/collections/kaftan-jalabiya"
+    },
+    {
+      "title": "VELVETS",
+      "href": "/collections/velvet"
+    },
+    {
+      "title": "READY TO DELIVER",
+      "href": "/collections/read-to-deliver"
+    },
+    {
+      "title": "LUXE EDITION",
+      "href": "/collections/luxe-edition-a-w-24"
+    },
+    {
+      "title": "SHOP BY COLLECTION",
+      "href": "/pages/shop-by-collection"
+    },
+    {
+      "title": "LUXURY PRET",
+      "href": "/collections/luxury-pret"
+    },
+    {
+      "title": "FORMALS",
+      "href": "/collections/formals"
+    },
+    {
+      "title": "BRIDALS",
+      "href": "/collections/bridals"
+    }
+  ],
+  "heroes": [
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/Web_Banners_1.webp?v=1792129990",
+      "mobile": "https://wardhasaleem.com/cdn/shop/files/Mobile_Banner_1.webp?v=1792129992",
+      "href": "/pages/velvet"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/banner_D_1_1.webp?v=1791372103",
+      "mobile": "https://wardhasaleem.com/cdn/shop/files/MOBILE_BANNER_WS.webp?v=1790337913",
+      "href": "/collections/luxe-edition-26"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/banner-1.webp?v=1791372150",
+      "mobile": "https://wardhasaleem.com/cdn/shop/files/banner_mob.webp?v=1789549096",
+      "href": "/collections/zimal-fw26"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/Ready_to_Deliver_D.webp?v=1791372180",
+      "mobile": "https://wardhasaleem.com/cdn/shop/files/Ready_to_Deliver_M.webp?v=1789455928",
+      "href": "/collections/read-to-deliver"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/Web_Banner_1.png?v=1791372212",
+      "mobile": "https://wardhasaleem.com/cdn/shop/files/Mobile_Banner.png?v=1777545339",
+      "href": "/collections/aari-collection-2026"
+    }
+  ],
+  "newArrivals": [
+    {
+      "handle": "noure",
+      "title": "Noure",
+      "image": "https://wardhasaleem.com/cdn/shop/files/3P6A8034f.jpg?v=1790320900",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/3P6A8040f.jpg?v=1790320900",
+      "price": 85000.0,
+      "compareAt": 0.0,
+      "badge": "Embroidered",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "lamia-1",
+      "title": "Lamia",
+      "image": "https://wardhasaleem.com/cdn/shop/files/008A1898f.jpg?v=1790320667",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/008A1894f.jpg?v=1790320667",
+      "price": 49500.0,
+      "compareAt": 0.0,
+      "badge": "Embroidered",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "layal-1",
+      "title": "Layal",
+      "image": "https://wardhasaleem.com/cdn/shop/files/008A1598f.jpg?v=1790320621",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/008A1656f.jpg?v=1790320621",
+      "price": 95000.0,
+      "compareAt": 0.0,
+      "badge": "Embroidered",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "sasha",
+      "title": "Sasha",
+      "image": "https://wardhasaleem.com/cdn/shop/files/3P6A7985f.jpg?v=1790320858",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/3P6A8012f.jpg?v=1790320858",
+      "price": 85000.0,
+      "compareAt": 0.0,
+      "badge": "Embroidered",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "novar",
+      "title": "Novar",
+      "image": "https://wardhasaleem.com/cdn/shop/files/008A2025f.jpg?v=1790320752",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/008A2012f.jpg?v=1790320752",
+      "price": 58000.0,
+      "compareAt": 0.0,
+      "badge": "Embellished",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "mila",
+      "title": "Mila",
+      "image": "https://wardhasaleem.com/cdn/shop/files/3P6A8126f.jpg?v=1790320709",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/3P6A8137f.jpg?v=1790320709",
+      "price": 68000.0,
+      "compareAt": 0.0,
+      "badge": "Embroidered",
+      "currency": "PKR",
+      "available": true
+    }
+  ],
+  "tabs": [
+    {
+      "title": "AARI COLLECTIVE VOL II",
+      "handle": "aari-vol-2"
+    },
+    {
+      "title": "AARI COLLECTIVE '26",
+      "handle": "aari-collection-2026"
+    },
+    {
+      "title": "LAYLA FESTIVE",
+      "handle": "layla-festive-2026"
+    },
+    {
+      "title": "Zimal Eid Edit '26",
+      "handle": "zimal-luxury-eid-edit-26"
+    },
+    {
+      "title": "Velvet Luxe",
+      "handle": "pure-velvet-2025"
+    },
+    {
+      "title": "Layla",
+      "handle": "layla25"
+    }
+  ],
+  "mobileProducts": [
+    {
+      "handle": "kiyana",
+      "title": "Kiyana",
+      "image": "https://wardhasaleem.com/cdn/shop/files/008A6909f.jpg?v=1781090902",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/008A6905_f.jpg?v=1781259927",
+      "price": 120000.0,
+      "compareAt": 0.0,
+      "badge": "Aari Work",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "rimel",
+      "title": "Rimel",
+      "image": "https://wardhasaleem.com/cdn/shop/files/7_ee563d63-34e2-4a73-9310-dbc9f46901a1.jpg?v=1781091221",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/9_f71ba772-376c-464e-9f3a-765a7de8b078.jpg?v=1781091221",
+      "price": 98000.0,
+      "compareAt": 0.0,
+      "badge": "Aari Work",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "minaal",
+      "title": "Minaal",
+      "image": "https://wardhasaleem.com/cdn/shop/files/3P6A1069t.jpg?v=1781091279",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/3P6A1069_t.jpg?v=1781259927",
+      "price": 120000.0,
+      "compareAt": 0.0,
+      "badge": "Aari Work",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "ayezel",
+      "title": "Ayezel",
+      "image": "https://wardhasaleem.com/cdn/shop/files/008A6742t.jpg?v=1781091310",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/008A6763_t.jpg?v=1781259928",
+      "price": 145000.0,
+      "compareAt": 0.0,
+      "badge": "Aari Work",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "mahveen",
+      "title": "Mahveen",
+      "image": "https://wardhasaleem.com/cdn/shop/files/008A6981f.jpg?v=1781091308",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/008A6981_f.jpg?v=1781259927",
+      "price": 120000.0,
+      "compareAt": 0.0,
+      "badge": "Aari Work",
+      "currency": "PKR",
+      "available": true
+    },
+    {
+      "handle": "ainah",
+      "title": "Ainah",
+      "image": "https://wardhasaleem.com/cdn/shop/files/008A6933t.jpg?v=1781091306",
+      "hover": "https://wardhasaleem.com/cdn/shop/files/008A6964_t.jpg?v=1781259927",
+      "price": 98000.0,
+      "compareAt": 0.0,
+      "badge": "Aari Work",
+      "currency": "PKR",
+      "available": true
+    }
+  ],
+  "features": [
+    {
+      "title": "Luxury Pret",
+      "image": "https://wardhasaleem.com/cdn/shop/files/LUXURY_TILE.webp?v=1789544373",
+      "href": "/collections/luxury-pret",
+      "description": "Experience refined luxury with our handcrafted pieces, seamlessly blending exquisite craftsmanship and ready-to-wear elegance.",
+      "tiles": [
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/LUXURY_TILE_1_21048ced-e8e5-4b17-9ec2-be153ddd3f39.webp",
+          "title": "SOHNI",
+          "href": "/products/sohni"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/LUXURY_TILE_2_bd46ca87-27fb-4019-a43e-dbf498607918.webp",
+          "title": "MAHI",
+          "href": "/products/mahi-1"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/LUXURY_TILE_3_6c1303bb-e44a-401b-93be-d28d73d84e2e.webp",
+          "title": "LAILA",
+          "href": "/products/laila"
+        }
+      ]
+    },
+    {
+      "title": "Formals",
+      "image": "https://wardhasaleem.com/cdn/shop/files/LARGE_FORMAL_TILE.webp?v=1789455700",
+      "href": "/collections/formals",
+      "description": "Discover exquisite formal wear featuring intricate embroideries on luxurious fabrics and captivating hues.",
+      "tiles": [
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/FORMAL_TILE_1.webp",
+          "title": "ZAHY",
+          "href": "/products/zahy"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/FORMAL_TILE_2.webp",
+          "title": "WARDA",
+          "href": "/products/warda"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/FORMAL_TILE_3.webp",
+          "title": "MAHVEEN",
+          "href": "/products/mahveen"
+        }
+      ]
+    },
+    {
+      "title": "Luxe Edition",
+      "image": "https://wardhasaleem.com/cdn/shop/files/Large_TILE_920ebcf3-d18c-46a5-9933-18aec1d47a46.webp?v=1790333588",
+      "href": "/collections/luxe-edition-a-w-24",
+      "description": "Limited Edition Collection of Luxury Formals made with exquisite fabrics, refined cuts, and intricate craftsmanship. This is where timeless elegance meets modern allure.",
+      "tiles": [
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/SMALL_TILE_1_8e80a525-008a-4a2a-890f-3a6723aeeded.webp",
+          "title": "LAYAL",
+          "href": "/products/layal-1"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/SMALL_TILE_2_792ea0e2-c49b-4928-bf38-4519a6311aba.webp",
+          "title": "MAYSAM",
+          "href": "/products/maysam"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/SMALL_TILE_3_f0bf16aa-e656-42dc-8c3c-5d66f9917b9d.webp",
+          "title": "TAMARA",
+          "href": "/products/tamara"
+        }
+      ]
+    },
+    {
+      "title": "Festive Bridals",
+      "image": "https://wardhasaleem.com/cdn/shop/files/big_tile_kashish.jpg?v=1751098832",
+      "href": "/collections/festive-bridals",
+      "description": "Elevate your wedding vibe with masterfully crafted couture pieces designed to add a touch of festivity and elegance to your celebration.",
+      "tiles": [
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/small_tile_1_vasal.jpg",
+          "title": "VASAL",
+          "href": "/products/vasal-wssr-12?variant=44377302237341"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/small_tile_2_falak.jpg",
+          "title": "FALAK",
+          "href": "/products/falak-wssr-08?variant=44377297682589"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/small_tile_3_sharar.jpg",
+          "title": "SHARAR",
+          "href": "/products/sharar-wssr-05?variant=44377301745821"
+        }
+      ]
+    },
+    {
+      "title": "Bridals",
+      "image": "https://wardhasaleem.com/cdn/shop/files/big_tile_noor_mahal.jpg?v=1751098272",
+      "href": "/collections/bridals",
+      "description": "Indulge in our timeless Heritage Heirlooms \u2013 where each piece is a work of art meticulously crafted to adorn the bride on her truly memorable day.",
+      "tiles": [
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/small_tile_1_Koh-I-Noor_5.jpg",
+          "title": "KOH-I-NOOR 5",
+          "href": "/products/koh-i-noor-wsb-001"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/small_tile_2_seesh_mahal.jpg",
+          "title": "SHEESH MAHAL",
+          "href": "/products/sheeshmahal-wsb-012"
+        },
+        {
+          "image": "https://wardhasaleem.com/cdn/shop/files/small_tile_3_gul_muhar.jpg",
+          "title": "GUL MUHAR",
+          "href": "/products/gul-muhar-wsb-011?variant=44376486674589"
+        }
+      ]
+    }
+  ],
+  "bestsellers": [
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/tile_-1.webp?v=1790412305",
+      "href": "/collections/luxe-edition-a-w-24"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/zimal_79c03ec4-13f9-42bd-95f3-e1e1c6b48913.jpg?v=1751094761",
+      "href": "/collections/zimal-silk-edition"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/LUXE-EDITION-resort-24.jpg?v=1751094794",
+      "href": "/collections/luxe-edition-resort-24"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/Meeram-festive-formals.jpg?v=1751094816",
+      "href": "/collections/meeram-festive-formals"
+    }
+  ],
+  "bestsellerDescription": "Discover elegance redefined in Wardha Saleem's latest Luxury Lawn, Pret, and Festive Bridals collections, featuring our bestsellers: 'Luxury Lawn' 'Meeram Festive Formals', 'Zimal Edit', 'Luxe Resort' and 'House of Prints'.",
+  "heritage": {
+    "image": "https://wardhasaleem.com/cdn/shop/files/Heritage_Heirloom_Bridals_D.webp?v=1789456109",
+    "mobile": "https://wardhasaleem.com/cdn/shop/files/Heritage_Heirloom_Bridals_M.webp?v=1789456110",
+    "href": "/collections/bridals"
+  },
+  "festive": "https://wardhasaleem.com/cdn/shop/files/Festive_Bridals_Homepage.webp?v=1767684373",
+  "bride": "https://wardhasaleem.com/cdn/shop/files/bakhtawar-min.png?v=1791373544",
+  "brideProduct": "https://wardhasaleem.com/cdn/shop/files/Untitleddesign_15.png?v=1746871512",
+  "brideHover": "https://wardhasaleem.com/cdn/shop/files/Untitleddesign_16.png?v=1746871512",
+  "celebrities": [
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/Untitled_design_17.png?v=1791373052",
+      "href": "/products/arfeen-wssr-04"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/111.jpg?v=1791373072",
+      "href": "/products/ushna-shah-bridal-look-1"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/bkt-1.png?v=1791373108",
+      "href": "/products/bakhtawar"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/Untitled_design_19.png?v=1791373177",
+      "href": "/products/wsbride-wsbride7"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/Untitled_design_20.png?v=1791373200",
+      "href": "/products/pakeezah-wsfb-007"
+    },
+    {
+      "image": "https://wardhasaleem.com/cdn/shop/files/222.jpg?v=1791373221",
+      "href": "/products/kanwal-formalshirtwithpants2pc-wsgp-001-23"
+    }
+  ]
+}
