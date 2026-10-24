@@ -1,4 +1,4 @@
-import {Await, Link, useLocation} from 'react-router';
+import {Await, Link} from 'react-router';
 import {Suspense, useId} from 'react';
 import type {
   CartApiQueryFragment,
@@ -6,8 +6,10 @@ import type {
   HeaderQuery,
 } from 'storefrontapi.generated';
 import {Aside} from '~/components/Aside';
-import {Footer} from '~/components/Footer';
-import {Header, HeaderMenu} from '~/components/Header';
+import {SiteFooter, SiteUtilities} from '~/components/SiteFooter';
+import {SiteHeader} from '~/components/SiteHeader';
+import {fallbackHeader, fallbackFooter, type SiteData} from '~/lib/site';
+import {HeaderMenu} from '~/components/Header';
 import {CartMain} from '~/components/CartMain';
 import {
   SEARCH_ENDPOINT,
@@ -22,6 +24,7 @@ interface PageLayoutProps {
   isLoggedIn: Promise<boolean>;
   publicStoreDomain: string;
   children?: React.ReactNode;
+  site: SiteData;
 }
 
 export function PageLayout({
@@ -31,29 +34,38 @@ export function PageLayout({
   header,
   isLoggedIn,
   publicStoreDomain,
+  site,
 }: PageLayoutProps) {
-  const homepage = useLocation().pathname === '/';
   return (
     <Aside.Provider>
       <CartAside cart={cart} />
       <SearchAside />
       <MobileMenuAside header={header} publicStoreDomain={publicStoreDomain} />
-      {!homepage && header && (
-        <Header
-          header={header}
+      <div className="wardha-home wardha-storefront">
+        <SiteHeader
+          items={header.menu?.items ?? fallbackHeader}
+          site={site}
           cart={cart}
-          isLoggedIn={isLoggedIn}
-          publicStoreDomain={publicStoreDomain}
         />
-      )}
-      {homepage ? children : <main>{children}</main>}
-      {!homepage && (
-        <Footer
-          footer={footer}
-          header={header}
-          publicStoreDomain={publicStoreDomain}
-        />
-      )}
+        <main className="ws-page-main" id="main-content">
+          {children}
+        </main>
+        <Suspense
+          fallback={
+            <SiteFooter items={fallbackFooter} settings={site.settings} />
+          }
+        >
+          <Await resolve={footer}>
+            {(data) => (
+              <SiteFooter
+                items={data?.menu?.items ?? fallbackFooter}
+                settings={site.settings}
+              />
+            )}
+          </Await>
+        </Suspense>
+        <SiteUtilities settings={site.settings} />
+      </div>
     </Aside.Provider>
   );
 }

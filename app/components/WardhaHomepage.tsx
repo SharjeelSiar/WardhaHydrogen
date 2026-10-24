@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState, type ReactNode} from 'react';
 import {Link, useFetcher} from 'react-router';
-import {useAside} from '~/components/Aside';
+import {useMouseDrag} from '~/hooks/useMouseDrag';
 import content from '~/content/homepage.json';
 
 export type HomeProduct = (typeof content.newArrivals)[number];
@@ -30,36 +30,6 @@ function Photo({
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
     />
-  );
-}
-function Icon({name}: {name: 'search' | 'bag' | 'user' | 'menu'}) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.3"
-      aria-hidden="true"
-    >
-      {name === 'search' ? (
-        <>
-          <circle cx="10.5" cy="10.5" r="7.5" />
-          <path d="m16 16 6 6" />
-        </>
-      ) : name === 'bag' ? (
-        <>
-          <path d="M4 7h16l1 15H3L4 7Z" />
-          <path d="M8 8V5a4 4 0 0 1 8 0v3" />
-        </>
-      ) : name === 'user' ? (
-        <>
-          <circle cx="12" cy="6" r="4" />
-          <path d="M3 23v-3a9 9 0 0 1 18 0v3" />
-        </>
-      ) : (
-        <path d="M2 5h20M2 12h20M2 19h20" />
-      )}
-    </svg>
   );
 }
 function ViewAll({href}: {href: string}) {
@@ -138,165 +108,18 @@ function useCarousel(count: number, seconds: number) {
     },
   };
 }
-function Header() {
-  const {open} = useAside();
-  const [menu, setMenu] = useState(false);
-  const closeRef = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    if (!menu) return;
-    closeRef.current?.focus();
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenu(false);
-    };
-    window.addEventListener('keydown', handleKey);
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      window.removeEventListener('keydown', handleKey);
-      document.body.style.overflow = previous;
-    };
-  }, [menu]);
-  return (
-    <>
-      <div className="ws-announcement">
-        <Link to="/collections/new-in">Shipping worldwide</Link>
-      </div>
-      <header className="ws-header">
-        <button
-          className="ws-mobile-menu ws-icon"
-          aria-label="Open menu"
-          aria-expanded={menu}
-          onClick={() => setMenu(true)}
-        >
-          <Icon name="menu" />
-        </button>
-        <Link className="ws-logo" to="/" aria-label="Wardha Saleem home">
-          <picture>
-            <source
-              media="(max-width:767px)"
-              srcSet={asset(content.mobileLogo, 180)}
-            />
-            <img
-              src={asset(content.logo, 350)}
-              alt="Wardha Saleem"
-              width="175"
-              height="33"
-            />
-          </picture>
-        </Link>
-        <nav className="ws-nav" aria-label="Main navigation">
-          {content.nav.map((item) => (
-            <div className="ws-nav-item" key={item.href}>
-              <Link to={item.href}>{item.title}</Link>
-              {['SHOP BY COLLECTION', 'LUXURY PRET', 'FORMALS'].includes(
-                item.title,
-              ) && (
-                <div className="ws-mega">
-                  {content.features
-                    .filter(
-                      (f) =>
-                        item.title === 'SHOP BY COLLECTION' ||
-                        f.title.toUpperCase() === item.title,
-                    )
-                    .map((f) => (
-                      <Link to={f.href} key={f.href}>
-                        <Photo src={f.image} alt={f.title} />
-                        <span>{f.title}</span>
-                      </Link>
-                    ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
-        <div className="ws-header-actions">
-          <button
-            className="ws-icon"
-            aria-label="Search"
-            onClick={() => open('search')}
-          >
-            <Icon name="search" />
-          </button>
-          <Link
-            className="ws-icon ws-account"
-            to="/account"
-            aria-label="My account"
-          >
-            <Icon name="user" />
-          </Link>
-          <button
-            className="ws-icon"
-            aria-label="Shopping bag"
-            onClick={() => open('cart')}
-          >
-            <Icon name="bag" />
-          </button>
-        </div>
-      </header>
-      {menu && (
-        <div className="ws-menu-backdrop">
-          <button
-            className="ws-menu-overlay"
-            aria-label="Close menu"
-            onClick={() => setMenu(false)}
-          />
-          <div
-            className="ws-menu-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Main menu"
-          >
-            <div>
-              MENU
-              <button
-                ref={closeRef}
-                onClick={() => setMenu(false)}
-                aria-label="Close menu"
-              >
-                ×
-              </button>
-            </div>
-            {content.nav.map((item) => (
-              <Link
-                onClick={() => setMenu(false)}
-                to={item.href}
-                key={item.href}
-              >
-                {item.title}
-                <span>›</span>
-              </Link>
-            ))}
-            <Link to="/account" onClick={() => setMenu(false)}>
-              My account
-            </Link>
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
 function Hero() {
   const c = useCarousel(content.heroes.length, 7);
-  const touch = useRef<number | null>(null);
+  const drag = useMouseDrag({
+    onSwipe: (direction) => (direction === 1 ? c.next() : c.previous()),
+  });
   return (
     <section
       className="ws-hero"
       aria-label="Latest collections"
       aria-roledescription="carousel"
       {...c.events}
-      onTouchStart={(e) => {
-        touch.current = e.touches[0].clientX;
-      }}
-      onTouchEnd={(e) => {
-        if (
-          touch.current !== null &&
-          Math.abs(e.changedTouches[0].clientX - touch.current) > 45
-        ) {
-          if (e.changedTouches[0].clientX < touch.current) c.next();
-          else c.previous();
-        }
-        touch.current = null;
-      }}
+      {...drag.events}
     >
       {content.heroes.map((slide, i) => (
         <Link
@@ -379,6 +202,7 @@ function Rail({
 }) {
   const paused = useRef(false);
   const ref = useRef<HTMLDivElement>(null);
+  const drag = useMouseDrag({scrollRef: ref});
   const move = (direction: number) => {
     const el = ref.current;
     if (!el) return;
@@ -425,7 +249,7 @@ function Rail({
         paused.current = false;
       }}
     >
-      <div ref={ref} className="ws-rail" aria-label={label}>
+      <div ref={ref} className="ws-rail" aria-label={label} {...drag.events}>
         {children}
       </div>
       <Arrow direction="previous" onClick={() => move(-1)} />
@@ -515,6 +339,9 @@ function NewArrivals({
 function FeaturedCollections() {
   const c = useCarousel(content.features.length, 7);
   const f = content.features[c.index];
+  const drag = useMouseDrag({
+    onSwipe: (direction) => (direction === 1 ? c.next() : c.previous()),
+  });
   return (
     <section
       className="ws-features ws-container"
@@ -523,7 +350,7 @@ function FeaturedCollections() {
     >
       <h2 className="ws-feature-mobile-title">{f.title}</h2>
       <div className="ws-feature-main">
-        <div className="ws-feature-photo">
+        <div className="ws-feature-photo" {...drag.events}>
           <Link to={f.href}>
             <Photo src={f.image} alt={f.title} />
           </Link>
@@ -554,127 +381,6 @@ function FeaturedCollections() {
         </div>
       </div>
     </section>
-  );
-}
-const footerGroups = [
-  {
-    title: 'About the Brand',
-    links: [
-      ['About Us', '/pages/about-us'],
-      ['Store Locator', '/pages/store-locator'],
-    ],
-  },
-  {
-    title: 'Online Information',
-    links: [
-      ['My Account', '/account/login'],
-      ['Order and Tracking', '/pages/order-tracking'],
-      ['Privacy Policy', '/pages/privacy-policy'],
-      ['Track Your Order', 'https://track.siardigital.com/wardhasaleem'],
-    ],
-  },
-  {
-    title: 'Customer Service',
-    links: [
-      ['Contact Us', '/pages/contact'],
-      ['Shipping Policy', '/pages/shipping-policy'],
-      ['Returns & Exchanges', '/pages/returns-exchanges'],
-      ['Terms and Conditions', '/pages/terms-conditions'],
-    ],
-  },
-];
-function Footer() {
-  const ref = useRef<HTMLElement>(null);
-  useEffect(() => {
-    if (window.matchMedia('(max-width: 767px)').matches)
-      ref.current?.querySelectorAll('details').forEach((detail) => {
-        detail.open = false;
-      });
-  }, []);
-  return (
-    <footer className="ws-footer" ref={ref}>
-      <Link to="/" className="ws-footer-logo">
-        <Photo src={content.footerLogo} alt="Wardha Saleem" />
-      </Link>
-      <div className="ws-footer-grid ws-container">
-        {footerGroups.map((group) => (
-          <details key={group.title} open>
-            <summary>{group.title}</summary>
-            <div>
-              {group.links.map(([label, href]) => (
-                <Link key={href} to={href}>
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </details>
-        ))}
-        <div className="ws-newsletter">
-          <p>Sign up to receive the latest updates from Wardha Saleem</p>
-          <form
-            method="post"
-            action="https://wardhasaleem.com/contact#contact_form"
-          >
-            <input type="hidden" name="form_type" value="customer" />
-            <input type="hidden" name="utf8" value="✓" />
-            <input type="hidden" name="contact[tags]" value="newsletter" />
-            <label className="ws-sr" htmlFor="ws-email">
-              Your email address
-            </label>
-            <input
-              id="ws-email"
-              type="email"
-              name="contact[email]"
-              placeholder="Your email address"
-              required
-            />
-            <button type="submit">Subscribe</button>
-          </form>
-          <div className="ws-social">
-            Follow Us{' '}
-            <a
-              aria-label="Wardha Saleem Facebook"
-              href="https://www.facebook.com/wardhasaleemofficial/"
-            >
-              f
-            </a>
-            <a
-              aria-label="Wardha Saleem Instagram"
-              href="https://www.instagram.com/wardhasaleemofficial/"
-            >
-              ◎
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="ws-copyright">
-        <span>
-          © {new Date().getFullYear()} Wardha Saleem. All Rights Reserved.
-        </span>
-        <span>
-          Powered by{' '}
-          <a href="https://siardigital.com">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0633/0715/3565/files/Siar_logo.png?v=1776148317"
-              alt="Siar Digital"
-              width="38"
-              height="13"
-            />
-          </a>
-        </span>
-        <div>
-          {['visa-b614b878', 'master-f5a74105'].map((icon) => (
-            <img
-              key={icon}
-              src={`https://wardhasaleem.com/cdn/shopifycloud/storefront/assets/payment_icons/${icon}.svg`}
-              alt={icon.startsWith('visa') ? 'Visa' : 'Mastercard'}
-              width="38"
-              height="24"
-            />
-          ))}
-        </div>
-      </div>
-    </footer>
   );
 }
 function NewsletterPopup() {
@@ -789,8 +495,7 @@ export function WardhaHomepage({
 }) {
   return (
     <div className="wardha-home">
-      <Header />
-      <main className="ws-main">
+      <div className="ws-main">
         <h1 className="ws-sr">
           Wardha Saleem — Luxury Pret, Formals and Bridals
         </h1>
@@ -886,28 +591,8 @@ export function WardhaHomepage({
             ))}
           </Rail>
         </section>
-      </main>
-      <Footer />
-      <NewsletterPopup />
-      <a
-        className="ws-whatsapp"
-        href="https://api.whatsapp.com/send?phone=923252599929&text=Hello%20I%20have%20a%20question%20regarding%20Wardha%20Saleem%3F"
-        aria-label="Chat on WhatsApp"
-      >
-        <svg
-          viewBox="0 0 32 32"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          aria-hidden="true"
-        >
-          <path d="M26 16a10 10 0 0 1-15 8.7L5 27l2-6A10 10 0 1 1 26 16Z" />
-          <path d="M12 10c-3 2 1 9 6 11 2 1 4-2 3-3l-3-1-1 2c-2-1-4-3-4-5l1-1-2-3Z" />
-        </svg>
-      </a>
-      <div className="ws-currency" aria-label="Prices in Pakistani rupees">
-        🇵🇰 <span>PKR</span>
       </div>
+      <NewsletterPopup />
     </div>
   );
 }

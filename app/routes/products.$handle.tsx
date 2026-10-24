@@ -2,21 +2,20 @@ import {redirect, useLoaderData} from 'react-router';
 import type {Route} from './+types/products.$handle';
 import {
   getSelectedProductOptions,
-  Analytics,
   useOptimisticVariant,
   getProductOptions,
   getAdjacentAndFirstAvailableVariants,
   useSelectedOptionInUrlParam,
 } from '@shopify/hydrogen';
-import {ProductPrice} from '~/components/ProductPrice';
-import {ProductImage} from '~/components/ProductImage';
-import {ProductForm} from '~/components/ProductForm';
+import {WardhaProductPage} from '~/components/WardhaProductPage';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [
-    {title: `Hydrogen | ${data?.product.title ?? ''}`},
+    {name: 'robots', content: 'noindex, nofollow'},
+    {title: `${data?.product.title ?? ''} – Wardha Saleem`},
     {
+      tagName: 'link',
       rel: 'canonical',
       href: `/products/${data?.product.handle}`,
     },
@@ -56,6 +55,13 @@ async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
     throw new Response(null, {status: 404});
   }
 
+  const variantId = new URL(request.url).searchParams.get('variant');
+  if (variantId && product.variants.nodes.length) {
+    const exact = product.variants.nodes.find(
+      (v) => v.id === `gid://shopify/ProductVariant/${variantId}`,
+    );
+    if (exact) product.selectedOrFirstAvailableVariant = exact;
+  }
   // The API handle might be localized, so redirect to the localized handle
   redirectIfHandleIsLocalized(request, {handle, data: product});
 
@@ -78,64 +84,21 @@ function loadDeferredData({context, params}: Route.LoaderArgs) {
 
 export default function Product() {
   const {product} = useLoaderData<typeof loader>();
-
-  // Optimistically selects a variant with given available variant information
   const selectedVariant = useOptimisticVariant(
     product.selectedOrFirstAvailableVariant,
     getAdjacentAndFirstAvailableVariants(product),
   );
-
-  // Sets the search param to the selected variant without navigation
-  // only when no search params are set in the url
   useSelectedOptionInUrlParam(selectedVariant.selectedOptions);
-
-  // Get the product options array
   const productOptions = getProductOptions({
     ...product,
     selectedOrFirstAvailableVariant: selectedVariant,
   });
-
-  const {title, descriptionHtml} = product;
-
   return (
-    <div className="product">
-      <ProductImage image={selectedVariant?.image} />
-      <div className="product-main">
-        <h1>{title}</h1>
-        <ProductPrice
-          price={selectedVariant?.price}
-          compareAtPrice={selectedVariant?.compareAtPrice}
-        />
-        <br />
-        <ProductForm
-          productOptions={productOptions}
-          selectedVariant={selectedVariant}
-        />
-        <br />
-        <br />
-        <p>
-          <strong>Description</strong>
-        </p>
-        <br />
-        <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
-        <br />
-      </div>
-      <Analytics.ProductView
-        data={{
-          products: [
-            {
-              id: product.id,
-              title: product.title,
-              price: selectedVariant?.price.amount || '0',
-              vendor: product.vendor,
-              variantId: selectedVariant?.id || '',
-              variantTitle: selectedVariant?.title || '',
-              quantity: 1,
-            },
-          ],
-        }}
-      />
-    </div>
+    <WardhaProductPage
+      product={product}
+      selectedVariant={selectedVariant}
+      productOptions={productOptions}
+    />
   );
 }
 
@@ -184,6 +147,30 @@ const PRODUCT_FRAGMENT = `#graphql
     handle
     descriptionHtml
     description
+    productType
+    tags
+    images(first:100){nodes{id url altText width height}}
+    media(first:100){nodes{__typename ... on Video{id alt sources{url mimeType format height width} previewImage{url altText width height}}}}
+    variants(first:250){nodes{...ProductVariant}}
+    badge:metafield(namespace:"theme",key:"custom_badge"){value}
+    delivery:metafield(namespace:"custom",key:"delivery_timelines"){value}
+    sizeChart:metafield(namespace:"custom",key:"size_chart"){reference{__typename ... on MediaImage{image{url altText width height}}}}
+    care:metafield(namespace:"custom",key:"care_instructions"){value}
+    disclaimer:metafield(namespace:"custom",key:"disclaimer"){value}
+    details:metafields(identifiers:[
+      {namespace:"custom",key:"work_details"},{namespace:"custom",key:"fabric_work"},{namespace:"custom",key:"color"},
+      {namespace:"custom",key:"shirts"},{namespace:"custom",key:"peshwas"},{namespace:"custom",key:"drape_top"},
+      {namespace:"custom",key:"draped_shirt"},{namespace:"custom",key:"bodice_sleeves"},{namespace:"custom",key:"dupatta"},
+      {namespace:"custom",key:"cargo_pants"},{namespace:"custom",key:"relaxed_fit_pants"},{namespace:"custom",key:"drape_shalwar"},
+      {namespace:"custom",key:"shalwar"},{namespace:"custom",key:"pants"},{namespace:"custom",key:"culotte"},
+      {namespace:"custom",key:"trouser"},{namespace:"custom",key:"poncho"},{namespace:"custom",key:"izaar"},
+      {namespace:"custom",key:"dhaka_pajama"},{namespace:"custom",key:"top"},{namespace:"custom",key:"bottom"},
+      {namespace:"custom",key:"inner"},{namespace:"custom",key:"kaftan"},{namespace:"custom",key:"jacket"},
+      {namespace:"custom",key:"drape"},{namespace:"custom",key:"shrug"},{namespace:"custom",key:"cape"},
+      {namespace:"custom",key:"jumpsuit"},{namespace:"custom",key:"saree"},{namespace:"custom",key:"choli"},
+      {namespace:"custom",key:"skirt"},{namespace:"custom",key:"blouse"},{namespace:"custom",key:"package_content"},
+      {namespace:"custom",key:"palazzo"},{namespace:"custom",key:"dress"}
+    ]){key value type}
     encodedVariantExistence
     encodedVariantAvailability
     options {

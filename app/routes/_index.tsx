@@ -2,10 +2,6 @@ import {useLoaderData} from 'react-router';
 import type {Route} from './+types/_index';
 import {WardhaHomepage} from '~/components/WardhaHomepage';
 import {homeProducts} from '~/lib/homepage';
-import stylesheet from '~/styles/wardha-home.css?url';
-export const links: Route.LinksFunction = () => [
-  {rel: 'stylesheet', href: stylesheet},
-];
 export const meta: Route.MetaFunction = () => [
   {title: 'Wardha Saleem | Luxury Pret, Formals & Bridals'},
   {

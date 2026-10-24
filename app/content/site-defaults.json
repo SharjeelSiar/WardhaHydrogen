@@ -1,0 +1,226 @@
+{
+  "header": [
+    {
+      "title": "NEW ARRIVALS",
+      "type": "HTTP",
+      "url": "https://wardhasaleem.com/collections/new-in"
+    },
+    {
+      "title": "KAFTAN & JALABIYA",
+      "type": "HTTP",
+      "url": "https://wardhasaleem.com/collections/kaftan-jalabiya"
+    },
+    {
+      "title": "VELVETS",
+      "type": "HTTP",
+      "url": "https://wardhasaleem.com/collections/velvet"
+    },
+    {
+      "title": "READY TO DELIVER",
+      "type": "HTTP",
+      "url": "https://wardhasaleem.com/collections/read-to-deliver"
+    },
+    {
+      "title": "LUXE EDITION",
+      "type": "HTTP",
+      "url": "https://wardhasaleem.com/collections/luxe-edition-a-w-24"
+    },
+    {
+      "title": "SHOP BY COLLECTION",
+      "type": "HTTP",
+      "url": "https://wardhasaleem.com/pages/shop-by-collection",
+      "items": [
+        {
+          "title": "Velvet Luxe",
+          "type": "HTTP",
+          "url": "https://wardhasaleem.com/collections/velvet-luxe"
+        },
+        {
+          "title": "Luxe Edition'26",
+          "type": "HTTP",
+          "url": "https://wardhasaleem.com/collections/luxe-edition-26"
+        },
+        {
+          "title": "Zimal FW '26",
+          "type": "HTTP",
+          "url": "https://wardhasaleem.com/collections/zimal-fw26"
+        }
+      ]
+    },
+    {
+      "title": "LUXURY PRET",
+      "type": "HTTP",
+      "url": "https://wardhasaleem.com/collections/luxury-pret",
+      "items": [
+        {
+          "title": "Fusion Wear",
+          "type": "HTTP",
+          "url": "https://wardhasaleem.com/collections/luxury-pret-fusion-wear"
+        },
+        {
+          "title": "Eastern Wear",
+          "type": "HTTP",
+          "url": "https://wardhasaleem.com/collections/luxury-pret-traditional-wear"
+        }
+      ]
+    },
+    {
+      "title": "FORMALS",
+      "type": "HTTP",
+      "url": "https://wardhasaleem.com/collections/formals",
+      "items": [
+        {
+          "title": "Heavy Formals",
+          "type": "HTTP",
+          "url": "https://wardhasaleem.com/collections/heavy-formals"
+        },
+        {
+          "title": "Semi Formals",
+          "type": "HTTP",
+          "url": "https://wardhasaleem.com/collections/semi-formals"
+        }
+      ]
+    },
+    {
+      "title": "BRIDALS",
+      "type": "HTTP",
+      "url": "https://wardhasaleem.com/collections/bridals"
+    }
+  ],
+  "footer": [
+    {
+      "title": "About the Brand",
+      "url": "https://wardhasaleem.com/",
+      "type": "HTTP",
+      "items": [
+        {
+          "title": "About Us",
+          "url": "/pages/about-us",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/95019991197"
+        },
+        {
+          "title": "Store Locator",
+          "url": "/pages/store-locator",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/95157878941"
+        }
+      ]
+    },
+    {
+      "title": "Online Information",
+      "url": "https://wardhasaleem.com/",
+      "type": "HTTP",
+      "items": [
+        {
+          "title": "My Account",
+          "url": "/account/login",
+          "type": "HTTP"
+        },
+        {
+          "title": "Order and Tracking",
+          "url": "/pages/order-tracking",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/94903566493"
+        },
+        {
+          "title": "Privacy Policy",
+          "url": "/pages/privacy-policy",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/94903435421"
+        },
+        {
+          "title": "Track Your Order",
+          "url": "https://track.siardigital.com/wardhasaleem",
+          "type": "HTTP"
+        }
+      ]
+    },
+    {
+      "title": "Customer Service",
+      "url": "https://wardhasaleem.com/",
+      "type": "HTTP",
+      "items": [
+        {
+          "title": "Contact Us",
+          "url": "/pages/contact",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/94662361245"
+        },
+        {
+          "title": "Shipping Policy",
+          "url": "/pages/shipping-policy",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/94903500957"
+        },
+        {
+          "title": "Returns & Exchanges",
+          "url": "/pages/returns-exchanges",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/94903599261"
+        },
+        {
+          "title": "Terms and Conditions",
+          "url": "/pages/terms-conditions",
+          "type": "PAGE",
+          "resourceId": "gid://shopify/Page/94903402653"
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "name": "Fusion Wear",
+      "link": "https://wardhasaleem.com/collections/luxury-pret-fusion-wear",
+      "image_url": "https://cdn.shopify.com/s/files/1/0633/0715/3565/files/Luxe_Pret_DD_02.webp"
+    },
+    {
+      "name": "Eastern Wear",
+      "link": "https://wardhasaleem.com/collections/luxury-pret-traditional-wear",
+      "image_url": "https://cdn.shopify.com/s/files/1/0633/0715/3565/files/Luxury_pret_DD_69aa88ff-5abd-473f-a5ca-6ff39dd660dd.webp"
+    },
+    {
+      "name": "Velvet Luxe",
+      "link": "https://wardhasaleem.com/collections/velvet-luxe",
+      "image_url": "https://cdn.shopify.com/s/files/1/0633/0715/3565/files/Optimized_694d70b7-2235-49e1-90ac-b825d4543f16.webp"
+    },
+    {
+      "name": "Luxe Edition'26",
+      "link": "https://wardhasaleem.com/collections/luxe-edition-26",
+      "image_url": "https://cdn.shopify.com/s/files/1/0633/0715/3565/files/Shop_by_collection_DD_0e775c79-fcc6-4c7d-b444-fd063c97cfb0.webp"
+    },
+    {
+      "name": "Zimal FW '26",
+      "link": "https://wardhasaleem.com/collections/zimal-fw26",
+      "image_url": "https://cdn.shopify.com/s/files/1/0633/0715/3565/files/New_Arrivals_DD.webp"
+    },
+    {
+      "name": "Heavy Formals",
+      "link": "https://wardhasaleem.com/collections/heavy-formals",
+      "image_url": "https://cdn.shopify.com/s/files/1/0633/0715/3565/files/DD-1.webp"
+    },
+    {
+      "name": "Semi Formals",
+      "link": "https://wardhasaleem.com/collections/semi-formals",
+      "image_url": "https://cdn.shopify.com/s/files/1/0633/0715/3565/files/Optimized.webp"
+    }
+  ],
+  "settings": {
+    "name": "Wardha Hydrogen",
+    "announcement_text": "Shipping worldwide",
+    "announcement_link": "https://wardhasaleem.com/collections/new-in",
+    "logo": "gid://shopify/MediaImage/28173004374173",
+    "mobile_logo": "gid://shopify/MediaImage/28167483883677",
+    "footer_logo": "gid://shopify/MediaImage/28190270193821",
+    "newsletter_text": "Sign up to receive the latest updates from Wardha Saleem",
+    "facebook_url": "https://www.facebook.com/WardhaSaleemOfficial/",
+    "instagram_url": "https://www.instagram.com/wardhasaleemofficial/",
+    "whatsapp_url": "https://api.whatsapp.com/send?phone=923252599929&text=Hello%20I%20have%20a%20question%20regarding%20Wardha%20Saleem%3F",
+    "copyright_text": "Wardha Saleem. All Rights Reserved.",
+    "care_instructions": "Preserve the elegance of your attire by dry cleaning and carefully storing it to maintain its luxurious fabric and intricate embellishments.",
+    "disclaimer": "We make every effort to ensure that the colors on the website are an exact representation of the actual color of the outfit. However, there may be minor variations due to a number of factors such as, the nature of fabric dyes, weather at the time of dying and differences in display output due to lighting, digital photography, color settings and capabilities of monitors.",
+    "size_chart": "gid://shopify/MediaImage/28202825023645",
+    "collection_banner_url": "https://wardhasaleem.com/cdn/shop/files/Web.webp?v=1792497098",
+    "collection_banner_mobile_url": "https://wardhasaleem.com/cdn/shop/files/Mob.webp?v=1792497100"
+  }
+}

@@ -15,6 +15,9 @@ import favicon from '~/assets/favicon.svg';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
 import resetStyles from '~/styles/reset.css?url';
 import appStyles from '~/styles/app.css?url';
+import brandStyles from '~/styles/wardha-home.css?url';
+import catalogStyles from '~/styles/wardha-catalog.css?url';
+import {loadSiteData, defaultSite} from '~/lib/site';
 import {PageLayout} from './components/PageLayout';
 
 export type RootLoader = typeof loader;
@@ -100,17 +103,20 @@ export async function loader(args: Route.LoaderArgs) {
 async function loadCriticalData({context}: Route.LoaderArgs) {
   const {storefront} = context;
 
-  const [header] = await Promise.all([
+  const [header, site] = await Promise.all([
     storefront.query(HEADER_QUERY, {
-      cache: storefront.CacheLong(),
+      cache: storefront.CacheShort(),
       variables: {
-        headerMenuHandle: 'main-menu', // Adjust to your header menu handle
+        headerMenuHandle: 'hydrogen-main-menu', // Adjust to your header menu handle
       },
     }),
-    // Add other queries here, so that they are loaded in parallel
+    loadSiteData(context).catch((error: unknown) => {
+      console.error('Hydrogen content unavailable', error);
+      return defaultSite;
+    }),
   ]);
 
-  return {header};
+  return {header, site};
 }
 
 /**
@@ -124,9 +130,9 @@ function loadDeferredData({context}: Route.LoaderArgs) {
   // defer the footer query (below the fold)
   const footer = storefront
     .query(FOOTER_QUERY, {
-      cache: storefront.CacheLong(),
+      cache: storefront.CacheShort(),
       variables: {
-        footerMenuHandle: 'footer', // Adjust to your footer menu handle
+        footerMenuHandle: 'hydrogen-footer', // Adjust to your footer menu handle
       },
     })
     .catch((error: Error) => {
@@ -151,6 +157,8 @@ export function Layout({children}: {children?: React.ReactNode}) {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="stylesheet" href={resetStyles}></link>
         <link rel="stylesheet" href={appStyles}></link>
+        <link rel="stylesheet" href={brandStyles} />
+        <link rel="stylesheet" href={catalogStyles} />
         <Meta />
         <Links />
       </head>
